@@ -6,12 +6,17 @@ export const TodoList = (props) => {
   const { todos, setTodos } = props;
 
   const handleDelete = (id) => {
-    // Function to delete task
+    setTodos(prevTodos => prevTodos.filter(todoItem => todoItem.id !== id));
   };
 
   const toggleCheck = (id) => {
-    // Function to toggle task
+    setTodos(prevTodos =>
+      prevTodos.map(todoItem =>
+        todoItem.id === id ? { ...todoItem, checked: !todoItem.checked } : todoItem
+      )
+    );
   };
+  
 
   const handleKeyUp = (e, id) => {
     if (e.keyCode === 13) {

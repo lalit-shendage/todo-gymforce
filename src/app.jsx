@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { TodoForm } from "./components/todo-form";
 import { TodoList } from "./components/todo-list";
 import { TodoResults } from "./components/todo-results";
@@ -38,7 +38,7 @@ const todosTemplate = [
 ];
 
 export const App = () => {
-  const [todos, setTodos] = React.useState([]);
+  const [todos, setTodos] = useState(todosTemplate);
 
   return (
     <div className="app">
